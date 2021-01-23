@@ -10,8 +10,16 @@ public class ListManagement {
      * @return list of the reversed list of inputList
      */
     List<String> reverseList(final List<String> inputList) {
-        return null;
+
+        List<String> lista = new ArrayList<>();
+
+        for(int i = inputList.size()-1 ; i  >= 0 ; i--) {
+            lista.add(inputList.get(i));
+
+        }
+        return lista;
     }
+
 
     /**
      * 2. task
@@ -21,7 +29,18 @@ public class ListManagement {
      * @return a list of the reversed list filtered to even numbers
      */
     List<Integer> reverseAndFilter(final List<Integer> inputList) {
-        return null;
+
+        List<Integer> evenNumbers = new ArrayList<>();
+
+        int num = 0;
+
+        for(int i = inputList.size()-1 ; i >= 0 ; i--) {
+            num = inputList.get(i);
+                if(num % 2 == 0) {
+                    evenNumbers.add(num);
+                }
+        }
+        return evenNumbers;
     }
 
     /**
