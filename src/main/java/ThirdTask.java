@@ -1,4 +1,3 @@
-import kotlin.Triple;
 import secret.*;
 
 import java.io.*;
@@ -14,16 +13,7 @@ public class ThirdTask {
      * @return forest created from the Land
      */
     Forest fileLocationToForest(String fileLocation) {
-        FileInputStream fileInputStream;
-        Land land = null;
-        try {
-            fileInputStream = new FileInputStream(new File(fileLocation));
-            land = Library.fileToLand(fileInputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return Library.landToForest(land);
+        return null;
     }
 
     /**
@@ -33,13 +23,7 @@ public class ThirdTask {
      * @return list of Triple
      */
     List<TreeRepresentation> parseForestToListOfTree(Forest forest) {
-        List<TreeRepresentation> result = new ArrayList<>();
-
-        for (int i = 0; i <= forest.getNumberOfTrees(); i++) {
-            result.add(treeToRepresentation(forest.getTree(i)));
-        }
-
-        return result;
+        return null;
     }
 
     /**
@@ -49,10 +33,7 @@ public class ThirdTask {
      * @return a representation of a tree has the same values as a tree but is our own class.
      */
     TreeRepresentation treeToRepresentation(Tree tree) {
-        return new TreeRepresentation(
-                tree.getName(),
-                tree.isOak(),
-                tree.getHeight());
+        return null;
     }
 
     /**
@@ -60,19 +41,8 @@ public class ThirdTask {
      *
      * @param data a lots of trees
      */
-    void grow(List<TreeRepresentation> data) {
-        List<TreeRepresentation> result = new ArrayList<>();
-        for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).isOak()) {
-                result.add(new TreeRepresentation(
-                        data.get(i).getName(),
-                        data.get(i).isOak(),
-                        data.get(i).getHeight() + 10));
-            } else {
-                result.add(data.get(i));
-            }
-        }
-        Library.createForestAndSaveAsLand(result);
+    List<TreeRepresentation> grow(List<TreeRepresentation> data) {
+        return null;
     }
 
 }

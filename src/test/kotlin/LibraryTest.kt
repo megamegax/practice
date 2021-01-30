@@ -6,14 +6,14 @@ class LibraryTest {
 
     @Test
     fun `open file`() {
-        val result = ThirdTask().fileLocationToForest(LibraryTest::class.java.getResource("test_file.xlsx").path)
+        val result = ThirdTask().fileLocationToForest(ThirdTaskSolution::class.java.getResource("test_file").path)
 
         result shouldNotBe null
     }
 
     @Test
     fun `parse TreeRepresentation`() {
-        val sheet = ThirdTask().fileLocationToForest(LibraryTest::class.java.getResource("test_file.xlsx").path)
+        val sheet = ThirdTask().fileLocationToForest(ThirdTaskSolution::class.java.getResource("test_file").path)
 
         val result = ThirdTask().treeToRepresentation(sheet.getTree(0))
 
@@ -25,7 +25,7 @@ class LibraryTest {
 
     @Test
     fun `parse Forest`() {
-        val sheet = ThirdTask().fileLocationToForest(LibraryTest::class.java.getResource("test_file.xlsx").path)
+        val sheet = ThirdTask().fileLocationToForest(ThirdTaskSolution::class.java.getResource("test_file").path)
 
         val result = ThirdTask().parseForestToListOfTree(sheet)
 
@@ -35,10 +35,16 @@ class LibraryTest {
 
     @Test
     fun `modify and save`() {
-        val sheet = ThirdTask().fileLocationToForest(LibraryTest::class.java.getResource("test_file.xlsx").path)
+        val sheet =
+            ThirdTask().fileLocationToForest(ThirdTaskSolution::class.java.getResource("test_file").path)
 
         val data = ThirdTask().parseForestToListOfTree(sheet)
 
-        ThirdTask().grow(data)
+        val result = ThirdTask().grow(data)
+        result.size shouldBe 7
+        result[0].height shouldBe 20
+        result[1].height shouldBe 10
+        result[2].height shouldBe 20
+        result[3].height shouldBe 20
     }
 }
